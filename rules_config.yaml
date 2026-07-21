@@ -1,0 +1,28 @@
+# Alle einstellbaren Regel-Parameter an einem Ort.
+# Harte Regeln = müssen immer gelten. Weiche Regeln = werden optimiert, aber
+# können bei Bedarf verletzt werden, statt den Plan unlösbar zu machen.
+
+on_call:
+  function_name: "OnCall"
+  max_days_per_month: 7               # hart: KEIN Arzt/Ärztin macht mehr als so viele On-Call-Tage im Monat
+  weekend_target_per_doctor: 1        # weich: Ziel-Anzahl Wochenend-On-Calls pro Ärzt:in
+  weekend_deviation_penalty: 10       # Gewicht im Zielfunktions-Term für Abweichung vom Wochenend-Ziel
+
+fairness:
+  # weich: Abweichung der Gesamtzahl regulärer Diensttage (ohne On-Call) vom Mittelwert bestrafen
+  balance_workload_penalty: 5
+
+rotations:
+  # Funktionen, bei denen dieselbe Person den ganzen Block übernimmt (z.B.
+  # 1-2 Wochen Ward- oder Hepatologie-Rotation) statt täglich neu zugeteilt
+  # zu werden.
+  block_functions: ["Ward", "Hepatology"]
+  block_length_days: 7                # 7 = wöchentliche Blöcke, 14 = zwei Wochen, etc.
+
+hard_rules:
+  max_one_function_per_doctor_per_day: true
+  respect_fixed_holidays: true
+  only_qualified_for_required_slot: true
+
+training:
+  allow_trainee_slots: true            # erlaubt zusätzliche, nicht-qualifizierte Ärzt:innen in trainee_slot=1 Funktionen
