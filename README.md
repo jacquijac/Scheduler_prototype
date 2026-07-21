@@ -77,3 +77,4 @@ Für den Praxiseinsatz: entweder `data/*.csv` durch eure echten Exporte ersetzen
 - Export als .ics / PDF
 - Mehrmonats-Historie für echte Fairness (aktuell wird jeder Monat unabhängig optimiert)
 - Nutzer-Login / Rechte, falls mehrere Personen den Plan pflegen
+# Scheduler_prototype
